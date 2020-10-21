@@ -28,7 +28,7 @@ public class ItemController {
 	
 	@PostMapping
 	public void saveItemInfo(@RequestBody Item item) {
-		itemCategoryService.saveItemInfo(item); 
+		itemCategoryService.saveItemInfo(item);  
 	}
 	
 	@PutMapping
@@ -37,7 +37,7 @@ public class ItemController {
 	}
 	@DeleteMapping("/{id}")
 	public void deleteItemInfo(@PathVariable int id) {
-		itemCategoryService.deleteItemInfo(id);
+		itemCategoryService.deleteItemInfo(id); 
 	}
 	
 	@GetMapping("/{id}")

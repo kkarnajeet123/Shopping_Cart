@@ -2,6 +2,7 @@ package com.thepustakari.usi.Model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -25,16 +26,18 @@ import lombok.Setter;
 public class Photo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
 	private int photoId;
+	@Column
 	private String photographer;
+	@Column
 	private String path;
+	@Column
 	private String fileName;
+	@Column
 	private String comments;
+	@Column
 	private Date date;
 	
-	@ManyToOne
-	@JoinColumn(name = "ItemId")
-	private Item item;
-
 }

@@ -1,6 +1,7 @@
 package com.thepustakari.usi.Model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,9 @@ import lombok.Data;
 public class Role {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
 	private int RoleId;
+	@Column
 	private String RoleName;
 	
 

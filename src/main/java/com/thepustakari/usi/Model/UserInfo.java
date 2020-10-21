@@ -1,6 +1,7 @@
 package com.thepustakari.usi.Model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,14 +18,19 @@ public class UserInfo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private int userId;
 	// @NotNull
+	@Column
 	private String email;
 	// @NotNull
+	@Column
 	private String password;
 	// @NotNull
+	@Column
 	private String FirstName;
 	// @NotNull
+	@Column
 	private String LastName;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
