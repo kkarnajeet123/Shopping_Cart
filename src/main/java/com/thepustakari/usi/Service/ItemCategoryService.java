@@ -2,15 +2,15 @@ package com.thepustakari.usi.Service;
 
 import java.util.List;
 
-import com.thepustakari.usi.Model.Item;
+import com.thepustakari.usi.Model.Product;
 
 public interface ItemCategoryService {
 	
-	void saveItemInfo(Item item);
-	void updateItemInfo(Item item);
+	void saveItemInfo(Product item);
+	void updateItemInfo(Product item);
 	void deleteItemInfo(int id);
-	Item getItemById(int id);
-	List<Item> getAllItems();
+	Product getItemById(int id);
+	List<Product> getAllItems();
 	
 
 }

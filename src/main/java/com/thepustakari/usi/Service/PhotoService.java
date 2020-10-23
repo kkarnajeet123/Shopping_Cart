@@ -1,5 +1,5 @@
 package com.thepustakari.usi.Service;
-
+/*
 import java.util.List;
 
 import com.thepustakari.usi.Model.Photo;
@@ -13,3 +13,4 @@ public interface PhotoService {
 	List<Photo> getAllPhoto();
 
 }
+*/

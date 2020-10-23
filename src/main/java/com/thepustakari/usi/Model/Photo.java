@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,7 +39,10 @@ public class Photo {
 	private String fileName;
 	@Column
 	private String comments;
-	@Column
+	@Column(name="date_stamp")
 	private Date date;
+	
+	@ManyToOne
+	private Product item;
 	
 }

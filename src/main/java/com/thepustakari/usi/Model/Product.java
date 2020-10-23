@@ -1,7 +1,5 @@
 package com.thepustakari.usi.Model;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +31,11 @@ import lombok.Setter;
 @Table(name="Item_Table") 
 @Data
 
-public class Item {
+public class Product {
 	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
 	private int ItemId;
 	@Column
@@ -49,19 +47,18 @@ public class Item {
 	@Column
 	private int orderQty;
 	
-	//@ManyToOne(fetch = FetchType.LAZY, optional=false)
-	//@JoinColumn(name = "CategoryId", nullable = false, //
-    //foreignKey = @ForeignKey(name = "Item_Id_Category_FK"))
-//	private Category category;
-    //@ManyToOne(fetch = FetchType.EAGER, optional=false)
-    //@JoinColumn(name = "CartId", nullable = false, //
-      //      foreignKey = @ForeignKey(name = "Item_Id_Cart_FK"))
-    
-	//private Cart cart;
-   
-	//@OneToOne(cascade = CascadeType.ALL)
-	//@Builder.Default
+	@ManyToOne
+	private Category category;
 	
-	//private Photo photo;
+    @ManyToOne
+	private Cart cart;
+   
+	@OneToMany(mappedBy="item")
+	private List<Photo>photos;
+	
+	@OneToMany(mappedBy="item")
+	private List<Order_Item>order_item;
+	
 
 }
+

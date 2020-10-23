@@ -1,5 +1,7 @@
 package com.thepustakari.usi.Model;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,23 +20,32 @@ public class UserInfo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
+	@Column(name="user_id")
 	private int userId;
 	// @NotNull
-	@Column
+	@Column (name="email")
 	private String email;
 	// @NotNull
-	@Column
+	@Column (name="password")
 	private String password;
 	// @NotNull
-	@Column
+	@Column (name="first_name")
 	private String FirstName;
 	// @NotNull
-	@Column
+	@Column	(name="last_name")
 	private String LastName;
+		
+	@Column(name="last_loginDate")
+	private Date lastLoginDate;
+	
+	@Column
+	private String confirmedPassword;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	@OneToOne(cascade = CascadeType.MERGE)
 	private Role role;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Order order;
+	
 
 }

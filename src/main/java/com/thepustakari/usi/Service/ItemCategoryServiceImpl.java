@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.thepustakari.usi.Model.Item;
+import com.thepustakari.usi.Model.Product;
 import com.thepustakari.usi.Repository.ItemCategoryRepository;
 
 
@@ -20,13 +20,13 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
 	
 	
 	@Override
-	public void saveItemInfo(Item item) {
+	public void saveItemInfo(Product item) {
 		itemCategoryRepository.save(item);
 		
 	}
 
 	@Override
-	public void updateItemInfo(Item item) {
+	public void updateItemInfo(Product item) {
 		itemCategoryRepository.save(item);
 		
 	}
@@ -35,17 +35,16 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
 	public void deleteItemInfo(int id) {
 		itemCategoryRepository.deleteById(id);
 		
-		
 	}
 
 	@Override
-	public Item getItemById(int id) {
+	public Product getItemById(int id) {
 		
 		return itemCategoryRepository.findById(id).get();
 	}
 
 	@Override
-	public List<Item> getAllItems() {
+	public List<Product> getAllItems() {
 		
 		return itemCategoryRepository.findAll();
 	}

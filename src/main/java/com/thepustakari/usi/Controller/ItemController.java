@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thepustakari.usi.Model.Item;
+import com.thepustakari.usi.Model.Product;
 import com.thepustakari.usi.Service.ItemCategoryService;
 
 @RestController
@@ -27,12 +27,12 @@ public class ItemController {
 	}
 	
 	@PostMapping
-	public void saveItemInfo(@RequestBody Item item) {
+	public void saveItemInfo(@RequestBody Product item) {
 		itemCategoryService.saveItemInfo(item);  
 	}
 	
 	@PutMapping
-	public void updateItemInfo(@RequestBody Item item) {
+	public void updateItemInfo(@RequestBody Product item) {
 		itemCategoryService.saveItemInfo(item);
 	}
 	@DeleteMapping("/{id}")
@@ -41,11 +41,11 @@ public class ItemController {
 	}
 	
 	@GetMapping("/{id}")
-	public Item getItemById(int id) {
+	public Product getItemById(int id) {
 		return itemCategoryService.getItemById(id);
 	}
 	@GetMapping
-	public List<Item> item(){
+	public List<Product> item(){
 		return itemCategoryService.getAllItems();
 	}
 }

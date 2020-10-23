@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.thepustakari.usi.Model.Photo;
-import com.thepustakari.usi.Repository.PhotoRepository;
+//import com.thepustakari.usi.Model.Photo;
+//import com.thepustakari.usi.Repository.PhotoRepository;
+/*
 @Service
 public class PhotoServiceImpl implements PhotoService {
 
@@ -46,3 +47,4 @@ public class PhotoServiceImpl implements PhotoService {
 	}
 
 }
+*/
