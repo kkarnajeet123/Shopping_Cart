@@ -18,32 +18,33 @@ import com.thepustakari.usi.Service.PhotoService;
 @RequestMapping("/photo")
 @CrossOrigin
 public class PhotoController {
-	@Autowired
-	//private PhotoService photoService;
 	
+	private PhotoService photoService;
+	
+	@Autowired
 	public PhotoController(PhotoService photoService) {
-		//this.photoService=photoService; 
+		this.photoService=photoService; 
 	}
 	
 	@PostMapping
 	public void savePhotoInfo(Photo photo) {
-		//photoService.savePhotoInfo(photo); 
+		photoService.savePhotoInfo(photo); 
 	}
 	
 	@PutMapping
 	public void updatePhotoInfo(Photo photo) {
-		//photoService.updatePhotoInfo(photo);
+		photoService.updatePhotoInfo(photo);
 	}
 	@DeleteMapping
 	public void deletePhotoById(int id) {
-	//	photoService.deletePhotoById(id);
+	photoService.deletePhotoById(id);
 	}
-	//@GetMapping("/{id}")
-	//Photo photoById(int id) {
-		//return photoService.getPhotoById(id); 
-	//}
-	//@GetMapping
-	//List<Photo> getAllPhoto(){
-		//return photoService.getAllPhoto();
-	//}
+	@GetMapping("/{id}")
+	Photo photoById(int id) {
+		return photoService.getPhotoById(id); 
+	}
+	@GetMapping
+	List<Photo> getAllPhoto(){
+	return photoService.getAllPhoto();
+	}
 }
