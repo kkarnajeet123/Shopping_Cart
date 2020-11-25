@@ -1,5 +1,6 @@
 package com.thepustakari.usi.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,14 @@ import com.thepustakari.usi.Repository.ItemCategoryRepository;
 
 @Service
 public class ItemCategoryServiceImpl implements ItemCategoryService {
-
-	private ItemCategoryRepository itemCategoryRepository;
 	@Autowired
-	public ItemCategoryServiceImpl(ItemCategoryRepository itemCategoryRepository) {
-		this.itemCategoryRepository=itemCategoryRepository;
-	}
+	private ItemCategoryRepository itemCategoryRepository;
 	
+//	@Autowired
+//	public ItemCategoryServiceImpl(ItemCategoryRepository itemCategoryRepository) {
+//		this.itemCategoryRepository=itemCategoryRepository;
+//	}
+//	
 	
 	@Override
 	public void saveItemInfo(Item item) {
@@ -46,8 +48,12 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
 
 	@Override
 	public List<Item> getAllItems() {
+		//return list<Items>
+		List<Item>items=new ArrayList<>();
+		itemCategoryRepository.findAll()
+		.forEach(items::add);
 		
-		return itemCategoryRepository.findAll();
+		return items;
 	}
 
 }

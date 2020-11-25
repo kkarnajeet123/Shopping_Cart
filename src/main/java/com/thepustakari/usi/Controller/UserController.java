@@ -2,6 +2,7 @@ package com.thepustakari.usi.Controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,16 +21,16 @@ import com.thepustakari.usi.Service.UserService;
 @RequestMapping("/users")
 @CrossOrigin
 public class UserController {
-
-	private final UserService userService;
 	
+	private final UserService userService;
+	@Autowired
 	public UserController(UserService userService) {
 		this.userService=  userService;
 	}
 	
 	@PostMapping
 	public void saveUserInfo(@RequestBody UserInfo userInfo) {
-		userService.saveUserInfo(userInfo);
+		userService.saveUserInfo(userInfo); 
 	}
 	
 	@PutMapping

@@ -2,6 +2,7 @@ package com.thepustakari.usi.Controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +16,12 @@ import com.thepustakari.usi.Service.PhotoService;
 
 @RestController
 @RequestMapping("/photo")
-//@CrossOrigin
+@CrossOrigin
 public class PhotoController {
 	
 	private PhotoService photoService;
 	
+	@Autowired
 	public PhotoController(PhotoService photoService) {
 		this.photoService=photoService; 
 	}
@@ -35,7 +37,7 @@ public class PhotoController {
 	}
 	@DeleteMapping
 	public void deletePhotoById(int id) {
-		photoService.deletePhotoById(id);
+	photoService.deletePhotoById(id);
 	}
 	@GetMapping("/{id}")
 	Photo photoById(int id) {
@@ -43,6 +45,6 @@ public class PhotoController {
 	}
 	@GetMapping
 	List<Photo> getAllPhoto(){
-		return photoService.getAllPhoto();
+	return photoService.getAllPhoto();
 	}
 }

@@ -1,11 +1,10 @@
 package com.thepustakari.usi.Model;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -16,19 +15,20 @@ import lombok.Data;
 public class UserInfo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
 	private int userId;
-	// @NotNull
 	private String email;
-	// @NotNull
 	private String password;
-	// @NotNull
+	@Column(name="first_name")
 	private String FirstName;
-	// @NotNull
+	@Column(name="last_name")
 	private String LastName;
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	
+//	@OneToOne(CascadeType.MERGE)
 	private Address address;
-	@OneToOne(cascade = CascadeType.MERGE)
+	//@OneToOne(cascade = CascadeType.MERGE)
 	private Role role;
 
 }

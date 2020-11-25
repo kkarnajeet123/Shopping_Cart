@@ -1,9 +1,10 @@
 package com.thepustakari.usi.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.thepustakari.usi.Model.Photo;
-
-public interface PhotoRepository extends JpaRepository<Photo, Integer>{
+@Repository
+public interface PhotoRepository extends CrudRepository<Photo, Integer>{
 
 }

@@ -1,5 +1,8 @@
 package com.thepustakari.usi.Controller;
 
-public class ItemCategoryController {
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ItemCategoryController { 
 
 }
