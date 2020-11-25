@@ -1,5 +1,6 @@
 package com.vastika.rating.data.service.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,8 @@ import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -38,13 +41,14 @@ public class UserInfo {
 	private String lastName;
 	@DateTimeFormat (pattern = "yyyy-MM-dd@HH:mm:ss")
 	@Column (name="RegisteredDate")
-	private Date createdate;
-	//@DateTimeFormat (pattern = "yyyy-MM-dd@HH:mm:ss")
+	@JsonIgnore
+	private final LocalDateTime createDate=LocalDateTime.now();
+	@JsonIgnore
 	@Column (name="LogInDateTime")
-	private String logindate;
-//	@DateTimeFormat (pattern = "yyyy-MM-dd@HH:mm:ss")
+	private String loginDate;
+	@JsonIgnore
 	@Column (name="LogOffDateTime")
-	private String logoffdate;
+	private String logoffDate;
 	@Column (name="Active")
 	private String active;
 	@OneToOne(cascade = CascadeType.MERGE)
@@ -52,8 +56,8 @@ public class UserInfo {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Authentication authnetication;
 	//@OneToMany (mappedBy = "userInfo", cascade=CascadeType.ALL, fetch=FetchType.EAGER)//the mappydeBy should be constructor name
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn (name="user_address_fk", referencedColumnName = "userId")
-	
+//	@OneToMany(cascade = CascadeType.ALL)
+	//@JoinColumn (name="user_address_fk", referencedColumnName = "userId")
+	@OneToMany (mappedBy = "userInfo", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Address> addresses;
 }

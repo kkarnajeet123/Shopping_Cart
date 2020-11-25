@@ -2,6 +2,8 @@ package com.vastika.rating.data.service.model;
 
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +27,7 @@ public class UserInfoJsonBinding  {
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Id")
-	private int userInfoId;
+	private long userInfoId;
 	@Column(name="Role")
 	private long role;
 	@Column(name="First_name")
@@ -36,6 +38,7 @@ public class UserInfoJsonBinding  {
 	private String email;
 	@Column(name="Password")
 	private String password;
+		
 	@Column(name="Address1")
 	private String address1;
 	@Column(name="Address2")

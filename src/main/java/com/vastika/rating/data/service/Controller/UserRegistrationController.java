@@ -57,6 +57,8 @@ public class UserRegistrationController {
 
 	@PostMapping
 	public void saveUserInfo(@RequestBody UserInfoJsonBinding userInfoJsonBinding) {
+		
+		
 
 		userInfoservice.saveUserInfo(userInfoJsonBinding);
 
