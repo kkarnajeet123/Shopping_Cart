@@ -49,6 +49,7 @@ public class UserInfoJsonBinding  {
 	private String state;
 	@Column(name="Zip_code")
 	private int zipcode;
+	
 	private String ActiveUserInfo;
 	
 }

@@ -23,14 +23,15 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="UserInfo_Tbl")
 @Data
+
 public class UserInfo {
-	
-		
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="User_Id")
@@ -41,23 +42,21 @@ public class UserInfo {
 	private String lastName;
 	@DateTimeFormat (pattern = "yyyy-MM-dd@HH:mm:ss")
 	@Column (name="RegisteredDate")
-	@JsonIgnore
+	//@JsonIgnore
 	private final LocalDateTime createDate=LocalDateTime.now();
-	@JsonIgnore
+	//@JsonIgnore
 	@Column (name="LogInDateTime")
-	private String loginDate;
-	@JsonIgnore
+	private final LocalDateTime loginDate=LocalDateTime.now();
+	//@JsonIgnore
 	@Column (name="LogOffDateTime")
-	private String logoffDate;
+	private LocalDateTime logoffDate;
 	@Column (name="Active")
 	private String active;
 	@OneToOne(cascade = CascadeType.MERGE)
 	private Role role;
 	@OneToOne(cascade = CascadeType.ALL)
-	private Authentication authnetication;
-	//@OneToMany (mappedBy = "userInfo", cascade=CascadeType.ALL, fetch=FetchType.EAGER)//the mappydeBy should be constructor name
-//	@OneToMany(cascade = CascadeType.ALL)
-	//@JoinColumn (name="user_address_fk", referencedColumnName = "userId")
+	private Authentication authentication;
 	@OneToMany (mappedBy = "userInfo", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JsonIgnore
 	private List<Address> addresses;
 }

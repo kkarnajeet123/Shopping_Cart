@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.vastika.rating.data.service.model.Authentication;
 @Repository
 public interface AuthenticationRepository extends JpaRepository<Authentication, Long> {
-
+	
 }

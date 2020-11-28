@@ -9,8 +9,6 @@ import com.vastika.rating.data.service.model.UserInfoJsonBinding;
 public interface UserInfoService {
 
 	void saveUserInfo(UserInfoJsonBinding userInfoJsonBinding);
-	
-	Address addAddress(Address address);
 
 	void updateUserInfo(UserInfoJsonBinding userInfo);
 
@@ -18,7 +16,5 @@ public interface UserInfoService {
 
 	UserInfo getUserInfoById(long userId);
 	
-	
-
 	List<UserInfo> getAllUserInfo();
 }

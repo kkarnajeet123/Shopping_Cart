@@ -33,8 +33,6 @@ public class UserRegistrationController {
 	@Autowired
 	private UserInfoService userInfoService;
 
-	// private UserJsonBindingService userJsonBindingService;
-
 	@Autowired
 	private Authentication authentication;
 
@@ -57,78 +55,39 @@ public class UserRegistrationController {
 
 	@PostMapping
 	public void saveUserInfo(@RequestBody UserInfoJsonBinding userInfoJsonBinding) {
-		
-		
-
 		userInfoservice.saveUserInfo(userInfoJsonBinding);
 
 	}
+ 
+	@PutMapping
+	public void updateUserInfo(@RequestBody UserInfoJsonBinding userInfoJsonBinding) {
+		
+		userInfoservice.saveUserInfo(userInfoJsonBinding);
 
-//	@PutMapping
-//	public void updateUserInfo(@RequestBody UserInfoJsonBinding userInfoJsonBinding) {
-//
-//		/*--------------------------------------------------------------------------------*/
-//		//save User Info
-//		if(userInfoJsonBinding.getRole()==1) {
-//			role.setRoleName("Admin");
-//		}else {
-//			role.setRoleName("User");
-//		}
-//		roleService.saveUserRole(role);
-//		
-//		/*--------------------------------------------------------------------------------*/
-//		//save Authentication Info
-//		
-//		authentication.setUsername(userInfoJsonBinding.getEmail());
-//		authentication.setPassword(userInfoJsonBinding.getPassword());
-//		authenticationService.saveUserAuthentication(authentication);
-//		/*--------------------------------------------------------------------------------*/
-//		//save User Info
-//		userInfo.setFirstName(userInfoJsonBinding.getFirstName());
-//		userInfo.setLastName(userInfoJsonBinding.getLastName());
-//		userInfo.setActive(userInfoJsonBinding.getActiveUserInfo());
-//		
-//		userInfo.setRole(role);
-//		userInfo.setAuthnetication(authentication);
-//		
-//		userInfoservice.saveUserInfo(userInfo);
-//				
-//		/*--------------------------------------------------------------------------------*/
-//		//save Address Info//
-//		
-//		address.setAddress1(userInfoJsonBinding.getAddress1());
-//		address.setAddress2(userInfoJsonBinding.getAddress2());
-//		address.setCity(userInfoJsonBinding.getCity());
-//		address.setState(userInfoJsonBinding.getState());
-//		address.setZipcode(userInfoJsonBinding.getZipcode());
-//		address.setUserInfo(userInfo);
-//		addressService.saveAddress(address);
-//		
-//		System.out.println("=========================================================");
-//		System.out.println("User Record has been updated!!");
-//	
-//}	
-
-	/*
-	 * 
-	 * @DeleteMapping("/{userInfoId}")
-	 * 
-	 * @GetMapping("/{userInfoId}") public void deleteUserInfo(@PathVariable int
-	 * userInfoId) { userInfoService.deleteUserInfo(userInfoId); System.out.println(
-	 * "=========================================================");
-	 * System.out.println("User Record with userid " + userInfoId +
-	 * " has been deleted!!");
-	 * 
-	 * }
-	 * 
-	 * 
-	 * @GetMapping("/{userInfoId}") public UserInfo getUserById(@PathVariable int
-	 * userInfoId) {
-	 * 
-	 * return userInfoService.getUserInfoById(userInfoId); }
-	 * 
-	 * 
-	 * @GetMapping public List<UserInfo> getAllUserInfo() { return
-	 * userInfoService.getAllUserInfo(); }
-	 */
+	}
+	  @DeleteMapping("/{userInfoId}")
+	  
+	  @GetMapping("/{userInfoId}") 
+	  public void deleteUserInfo(@PathVariable int userInfoId) 
+	  { userInfoService.deleteUserInfo(userInfoId); 
+	  System.out.println("=========================================================");
+	  System.out.println("User Record with userid " + userInfoId +"has been deleted!!");
+	  
+	 }
+	
+	  @GetMapping("/{userInfoId}") 
+	  public UserInfo getUserById(@PathVariable int userInfoId) {
+	  
+	  return userInfoService.getUserInfoById(userInfoId); 
+	  }
+	  
+	 
+	  @GetMapping 
+	  public List<UserInfo> getAllUserInfo() {
+		  
+		  //System.out.println(userInfoService.getAllUserInfo());
+		  return userInfoService.getAllUserInfo(); 
+		  
+		  }
+	 
 }
