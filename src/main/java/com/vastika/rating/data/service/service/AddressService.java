@@ -1,4 +1,4 @@
-package com.vastika.rating.data.service.Service;
+package com.vastika.rating.data.service.service;
 
 import com.vastika.rating.data.service.model.Address;
 

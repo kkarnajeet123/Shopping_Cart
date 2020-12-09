@@ -1,10 +1,10 @@
-package com.vastika.rating.data.service.Service;
+package com.vastika.rating.data.service.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vastika.rating.data.service.Repository.RoleRepository;
 import com.vastika.rating.data.service.model.Role;
+import com.vastika.rating.data.service.repository.RoleRepository;
 @Service
 public class RoleServiceImpl implements RoleService {
 

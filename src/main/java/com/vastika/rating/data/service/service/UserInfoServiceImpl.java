@@ -1,17 +1,18 @@
-package com.vastika.rating.data.service.Service;
+package com.vastika.rating.data.service.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.vastika.rating.data.service.Repository.AuthenticationRepository;
-import com.vastika.rating.data.service.Repository.RoleRepository;
-import com.vastika.rating.data.service.Repository.UserInfoRepository;
+
 import com.vastika.rating.data.service.model.Address;
 import com.vastika.rating.data.service.model.Authentication;
 import com.vastika.rating.data.service.model.Role;
 import com.vastika.rating.data.service.model.UserInfo;
 import com.vastika.rating.data.service.model.UserInfoJsonBinding;
+import com.vastika.rating.data.service.repository.AuthenticationRepository;
+import com.vastika.rating.data.service.repository.RoleRepository;
+import com.vastika.rating.data.service.repository.UserInfoRepository;
 
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
@@ -24,6 +25,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Autowired
 	private AuthenticationRepository authenticationRepository;
 	
+	@Autowired
+	private Authentication authentication;
 		
 	@Override
 	public void saveUserInfo(UserInfoJsonBinding userInfoJsonBinding) {
@@ -57,7 +60,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 			
 		}
 		
-		authentication.setUsername(userInfoJsonBinding.getEmail());
+		authentication.setUserName(userInfoJsonBinding.getEmail());
 		authentication.setPassword(userInfoJsonBinding.getPassword());
 		
 		
@@ -109,7 +112,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		return userInfoRepository.findAll();
 	}
-
 
 
 }

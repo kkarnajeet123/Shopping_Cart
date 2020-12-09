@@ -1,4 +1,4 @@
-package com.vastika.rating.data.service.Service;
+package com.vastika.rating.data.service.service;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ public interface UserInfoService {
 	void deleteUserInfo(long userId);
 
 	UserInfo getUserInfoById(long userId);
+	
 	
 	List<UserInfo> getAllUserInfo();
 }

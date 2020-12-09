@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name="authentication_tbl")
 @Table(name="Authentication_Tbl")
 @Data
 @Component
@@ -25,8 +25,8 @@ public class Authentication {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Authentication_Id")
 	private long AuthenticationID;
-	@Column(name="user_name")
-	private String Username;
+	@Column(name="username")
+	private String UserName;
 	@Column(name="password")
 	private String Password;
 	

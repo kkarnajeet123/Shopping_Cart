@@ -1,5 +1,5 @@
-package com.vastika.rating.data.service.Service;
-
+package com.vastika.rating.data.service.service;
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,22 +9,24 @@ import com.vastika.rating.data.service.model.Authentication;
 public class AuthenticationServiceImpl implements AuthenticationService {
 	@Autowired
 	private AuthenticationRepository authenticationRepository;
+
 	
 	@Override
-	public void saveUserAuthentication(Authentication authentication) {
-		authenticationRepository.save(authentication);
-
+	public Authentication getEmailAndPasswordByEmail(String Email, String Password) {
+		
+		return authenticationRepository.findByEmailAndPassword(Email,Password);
 	}
+
 
 	@Override
-	public void updateUserAuthentication(Authentication authentication) {
-		authenticationRepository.save(authentication);
+	public Authentication getEmailByEmail(String email) {
+		
+		return authenticationRepository.findByEmail(email);
+		
+		
+		
 	}
-
-	@Override
-	public void deleteUserAuthentication(long userId) {
-		authenticationRepository.deleteById(userId);
-
-	}
-
+	
+	
 }
+*/

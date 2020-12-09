@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -27,11 +28,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name="user_info_tbl")
 @Table(name="UserInfo_Tbl")
 @Data
 
 public class UserInfo {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="User_Id")
@@ -59,4 +61,11 @@ public class UserInfo {
 	@OneToMany (mappedBy = "userInfo", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JsonIgnore
 	private List<Address> addresses;
+	/*
+	@JsonIgnore
+	private String username ;
+	@JsonIgnore
+	private String password;
+	*/
 }
+
